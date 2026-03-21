@@ -3,7 +3,7 @@ on:
     push:
         paths:
             - 'Code/02 Basics/02 Starting Project/**'
-            - '.github/workflows/test.yml'
+            - '.github/workflows/**'
 jobs:
     test:
         runs-on: ubuntu-latest
