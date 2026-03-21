@@ -23,6 +23,9 @@ jobs:
               run: npm test
     deploy:
         runs-on: ubuntu-latest
+        defaults:
+            run:
+                working-directory: 'Code/02 Basics/02 Starting Project'
         steps:
             - name: Get Code
               uses: actions/checkout@v3
@@ -34,5 +37,5 @@ jobs:
               run: npm ci
             - name: Build project
               run: npm run build
-            - name: Deploy 
+            - name: Deploy
               run: echo "Deploying..."
