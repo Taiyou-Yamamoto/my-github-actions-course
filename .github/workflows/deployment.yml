@@ -1,9 +1,9 @@
-name: Test Project
+name: Deploy Project
 on:
     push:
         paths:
             - 'Code/02 Basics/02 Starting Project/**'
-            - ".github/workflows/test.yml"
+            - '.github/workflows/test.yml'
 jobs:
     test:
         runs-on: ubuntu-latest
@@ -18,6 +18,21 @@ jobs:
               with:
                   node-version: 18
             - name: Install dependencies
-              run: npm install
+              run: npm ci
             - name: Run tests
               run: npm test
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Get Code
+              uses: actions/checkout@v3
+            - name: Install NodeJS
+              uses: actions/setup-node@v3
+              with:
+                  node-version: 18
+            - name: Install dependencies
+              run: npm ci
+            - name: Build project
+              run: npm run build
+            - name: Deploy 
+              run: echo "Deploying..."
