@@ -22,6 +22,7 @@ jobs:
             - name: Run tests
               run: npm test
     deploy:
+        needs: test # 識別子testのワークフローが成功したら、このワークフローが実行される
         runs-on: ubuntu-latest
         defaults:
             run:
