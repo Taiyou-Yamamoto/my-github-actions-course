@@ -12,9 +12,9 @@ jobs:
               if: github.event.action == 'opened'
               env:
                   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-              run: gh issue comment ${{ github.event.issue.number }} --body "Hello World!!"
+              run: gh issue comment ${{ github.event.issue.number }} --repo ${{ github.repository }} --body "Hello World!!"
             - name: Comment Change The World!!
               if: github.event.action == 'edited'
               env:
                   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-              run: gh issue comment ${{ github.event.issue.number }} --body "Change The World!!"
+              run: gh issue comment ${{ github.event.issue.number }} --repo ${{ github.repository }} --body "Change The World!!"
