@@ -25,7 +25,7 @@ jobs:
             - name: Run test
               run: npm run test
     deploy:
-        needs: lint_and_test # 識別子testのワークフローが成功したら、このワークフローが実行される
+        needs: lint_and_test
         runs-on: ubuntu-latest
         defaults:
             run:
