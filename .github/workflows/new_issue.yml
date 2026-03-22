@@ -7,15 +7,13 @@ jobs:
         runs-on: ubuntu-latest
         permissions:
             issues: write
+        env:
+            GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            GH_REPO: ${{ github.repository }}
         steps:
             - name: Comment Hello World!!
               if: github.event.action == 'opened'
-              env:
-                  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                  GH_REPO: ${{ github.repository }}
               run: gh issue comment ${{ github.event.issue.number }} --body "Hello World!!"
             - name: Comment Change The World!!
               if: github.event.action == 'edited'
-              env:
-                  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               run: gh issue comment ${{ github.event.issue.number }} --body "Change The World!!"
