@@ -4,6 +4,7 @@ on:
         paths:
             - 'Code/02 Basics/02 Starting Project/**'
             - '.github/workflows/**'
+    workflow_dispatch: # 手動実行。pathsでの指定はできないので配列を使用した省略形は使用できない。個別に指定する。
 jobs:
     test:
         runs-on: ubuntu-latest
