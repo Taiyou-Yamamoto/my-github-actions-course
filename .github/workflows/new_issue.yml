@@ -14,7 +14,7 @@ jobs:
                   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               run: gh issue comment ${{ github.event.issue.number }} --body "Hello World!!"
             - name: Comment Change The World!!
-              if: github.event.action == 'edited' # 👈 'edited' と比較
+              if: github.event.action == 'edited'
               env:
                   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               run: gh issue comment ${{ github.event.issue.number }} --body "Change The World!!"
