@@ -1,0 +1,45 @@
+name: 'Practice Deployment'
+on:
+    push:
+        paths:
+            - 'Code/02 Basics/02 Practice Project/**'
+            - '.github/workflows/deployment_Practice.yml'
+    workflow_dispatch:
+jobs:
+    lint_and_test:
+        runs-on: ubuntu-latest
+        defaults:
+            run:
+                working-directory: 'Code/02 Basics/02 Practice Project'
+        steps:
+            - name: Get Code
+              uses: actions/checkout@v3
+            - name: Install NodeJS
+              uses: actions/setup-node@v3
+              with:
+                  node-version: 18
+            - name: Install dependencies
+              run: npm ci
+            - name: lint
+              run: npm run lint
+            - name: Run test
+              run: npm run test
+    deploy:
+        needs: lint_and_test # 識別子testのワークフローが成功したら、このワークフローが実行される
+        runs-on: ubuntu-latest
+        defaults:
+            run:
+                working-directory: 'Code/02 Basics/02 Starting Project'
+        steps:
+            - name: Get Code
+              uses: actions/checkout@v3
+            - name: Install NodeJS
+              uses: actions/setup-node@v3
+              with:
+                  node-version: 18
+            - name: Install dependencies
+              run: npm ci
+            - name: Build project
+              run: npm run build
+            - name: Deploy
+              run: echo "Deploying..."
