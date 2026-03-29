@@ -11,6 +11,7 @@ on:
             - 'feat/**'
         paths:
             - 'src/css'
+# コメント追加
 jobs:
     deploy:
         runs-on: ubuntu-latest
