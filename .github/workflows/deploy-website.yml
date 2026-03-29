@@ -34,8 +34,8 @@ jobs:
               with:
                   name: dist-files
                   path: |
-                      'Code/04 Artifacts & Outputs/01 Starting Project/dist'
-                      'Code/04 Artifacts & Outputs/01 Starting Project/package.json'
+                      Code/04 Artifacts & Outputs/01 Starting Project/dist
+                      Code/04 Artifacts & Outputs/01 Starting Project/package.json
     deploy:
         needs: build
         runs-on: ubuntu-latest
