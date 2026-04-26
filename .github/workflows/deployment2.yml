@@ -6,7 +6,7 @@ on:
             - main
             - dev
         paths:
-            - 'Code/05 Environment Variables & Secrets/01 Starting Project'
+            - 'Code/05 Environment Variables & Secrets/01 Starting Project/'
             - '.github/workflows/deployment2.yml'
 env:
     MONGODB_DB_NAME: gha-demo
@@ -18,6 +18,9 @@ jobs:
             MONGODB_PASSWORD: R3iIcn1XflKOPYdO
             PORT: 8080
         runs-on: ubuntu-latest
+        defaults:
+            run:
+                working-directory: 'Code/05 Environment Variables & Secrets/01 Starting Project'
         steps:
             - name: Get Code
               uses: actions/checkout@v3
