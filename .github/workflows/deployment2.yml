@@ -6,7 +6,7 @@ on:
             - main
             - dev
         paths:
-            - 'Code/05 Environment Variables & Secrets/**'
+            - 'Code/05 Environment Variables & Secrets/01 Starting Project'
             - '.github/workflows/deployment2.yml'
 env:
     MONGODB_DB_NAME: gha-demo
