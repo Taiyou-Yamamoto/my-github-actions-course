@@ -42,14 +42,15 @@ jobs:
             - name: Install dependencies
               run: npm ci
             - name: Test code
+              id: run-tests
               run: npm run test
-            - name:
-                  Upload test report
-                  # if:
+            - name: Upload test report
+              if: failure() && steps.run-tests.outcome == 'failure'
               uses: actions/upload-artifact@v4
               with:
                   name: test-report
-                  path: test.json
+                  # path: test.json
+                  path: Code/06 Execution Flow/01 Starting Project/test.json
     build:
         needs: test
         runs-on: ubuntu-latest
