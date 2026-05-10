@@ -4,7 +4,7 @@ on:
         branches:
             - main
         paths:
-            - 'Code/06 Execution Flow/01 Starting Project/'
+            - 'Code/06 Execution Flow/01 Starting Project/**'
             - '.github/workflows/execution-flow.yml'
 jobs:
     lint:
